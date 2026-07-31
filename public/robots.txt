@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Permitir explícitamente a los bots de IA rastrear el contenido para citas
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://levelstudio.cl/sitemap.xml

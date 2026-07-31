@@ -1,0 +1,26 @@
+# Level Studio
+# Level Studio - Barbershop in Las Condes
+
+## Información General
+- **Nombre**: Level Studio
+- **Descripción**: Level Studio es una barbería premium ubicada en Las Condes, especializada en cortes de pelo para hombres, arreglo de barba y el método High Level.
+- **Ubicación**: Av. Apoquindo 4900, Local 29, Las Condes, Región Metropolitana, Chile.
+- **Horarios**: Lunes a Viernes 10:00 - 19:30. Sábados 10:00 - 15:00. Domingos cerrado.
+- **Enfoque**: Ayudamos a hombres profesionales que quieren verse impecables sin tener que explicar lo mismo en cada visita, a lograr un look consistente y de alto nivel.
+
+## Servicios (ver /pricing.md para detalles)
+- Corte de Cabello Estándar
+- Corte + Lavado
+- Corte de Cabello Premium
+- Corte Premium + Barba Premium
+- Experiencia High LEVEL (Transformación total)
+
+## Equipo
+- Juanchi: Barbero Profesional
+- Alonso: Barbero Profesional
+- Misael: Barbero Profesional
+
+## Contacto / Reservas
+- Agendamiento Online mediante AgendaPro.
+- WhatsApp: +56990118423
+- Web: https://levelstudio.cl

@@ -1,0 +1,18 @@
+<IfModule mod_headers.c>
+  # Forzar HTTPS
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Evitar que incrusten la web en otros sitios (Clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Prevenir ataques XSS y robo de tipos mime
+  Header set X-Content-Type-Options "nosniff"
+
+  # Forzar uso estricto de SSL/HTTPS
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Referrer Policy para privacidad
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

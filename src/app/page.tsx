@@ -8,14 +8,14 @@ import { ArrowRight, MapPin, CheckCircle, UserCheck } from "lucide-react";
 import { sendGAEvent } from '@next/third-parties/google';
 
 // --- CONSTANTES DE DATOS (CLEAN CODE) ---
-const AGENDA_URL = "https://levelstudio.site.agendapro.com/cl/sucursal/138943";
+const AGENDA_URL = "https://agendafast.cl/level-studio/reservar";
 
 const SERVICES = [
-  { name: "Corte de Cabello Estándar", price: "$22.000", desc: "Servicio integral abarcando todo tipo de técnicas en tijeras, máquinas y degradados (fade)." },
+  { name: "Corte de Cabello Estándar", price: "$23.000", desc: "Servicio integral abarcando todo tipo de técnicas en tijeras, máquinas y degradados (fade)." },
   { name: "Corte + Lavado", price: "$25.000", desc: "Servicio de corte de cabello clásico o moderno acompañado de un lavado capilar." },
   { name: "Corte de Cabello Premium", price: "$30.000", desc: "Corte + Asesoría + Lavado + Exfoliación capilar + masaje capilar + styling (peinado)." },
-  { name: "Corte de Cabello Estandar + Barba Premium", price: "$37.000", desc: "Arreglo de barba con toalla caliente más corte de cabello estándar." },
-  { name: "Corte Premium + Barba Premium", price: "$42.000", desc: "El servicio completo para tu cabello y barba con productos de alta gama y toallas calientes." },
+  { name: "Corte de Cabello Estandar + Barba Premium", price: "$38.000", desc: "Arreglo de barba con toalla caliente más corte de cabello estándar." },
+  { name: "Corte Premium + Barba Premium", price: "$43.000", desc: "El servicio completo para tu cabello y barba con productos de alta gama y toallas calientes." },
   { name: "Experiencia High LEVEL", price: "$49.990", desc: "Corte Premium + Barba Premium + Limpieza Facial + limpieza de vello. La transformación total." }
 ];
 
@@ -26,9 +26,9 @@ const EXPERIENCE_FEATURES = [
 ];
 
 const BARBERS = [
-  { name: "Juanchi", role: "Barbero Profesional", img: "/barbero-juanchi-level-studio.webp", url: `${AGENDA_URL}/profesional/306593` },
-  { name: "Alonso", role: "Barbero Profesional", img: "/barbero-alonso-level-studio.webp", url: `${AGENDA_URL}/profesional/395840` },
-  { name: "Misael", role: "Barbero Profesional", img: "/barbero-misael-level-studio.webp", url: `${AGENDA_URL}/profesional/791347` }
+  { name: "Juanchi", role: "Barbero Profesional", img: "/barbero-juanchi-level-studio.webp", url: "https://agendafast.cl/level-studio/reservar?profesional=827f1652-4bb1-48fd-b60a-1e794f24ae53" },
+  { name: "Alonso", role: "Barbero Profesional", img: "/barbero-alonso-level-studio.webp", url: "https://agendafast.cl/level-studio/reservar?profesional=ba8d4d1c-4c36-46e5-a542-702dabd0a115" },
+  { name: "Misael", role: "Barbero Profesional", img: "/barbero-misael-level-studio.webp", url: "https://agendafast.cl/level-studio/reservar?profesional=576fd829-2fe4-4a37-924c-60a22aa5d14f" }
 ];
 
 const REVIEWS = [
@@ -70,11 +70,11 @@ function ServiceItem({ service, index }: { service: any, index: number }) {
 
 export default function LevelStudioPage() {
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2800);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -87,44 +87,6 @@ export default function LevelStudioPage() {
   return (
     <div ref={containerRef} className="relative bg-zinc-50 min-h-screen text-zinc-900 overflow-hidden font-sans" >
       
-      {/* LOADING SCREEN */}
-      <AnimatePresence>
-        {loading && (
-          <motion.div 
-            initial={{ y: 0 }}
-            exit={{ y: "-100%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
-            style={{ backgroundImage: "url('/fondo-concreto-level-studio.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
-          >
-            <div className="absolute inset-0 bg-white/40 z-0"></div>
-            <div className="relative z-10 overflow-hidden flex flex-col items-center justify-center">
-              <motion.div
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-                className="relative w-64 h-24 md:w-80 md:h-32 mb-4"
-              >
-                <Image src="/logo-oscuro-level-studio.webp" alt="Level Studio Logo" fill className="object-contain" />
-              </motion.div>
-            </div>
-            <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: "200px" }}
-              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
-              className="relative z-10 h-[2px] bg-zinc-900 mt-8"
-            />
-            <motion.p
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ duration: 1, delay: 1 }}
-               className="relative z-10 font-nothing mt-4 text-zinc-900 text-lg md:text-2xl"
-            >
-              Cargando Experiencia...
-            </motion.p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* HERO SECTION */}
       <section className="relative h-[100svh] w-full overflow-hidden flex items-center justify-center">
          <div className="absolute inset-0 w-full h-full z-0">
@@ -140,12 +102,12 @@ export default function LevelStudioPage() {
         
         <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center justify-center h-full mt-4 md:mt-0 text-center">
             <h1 className="sr-only">Level Studio - Barbería Premium en Las Condes</h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }} className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-2 md:mb-4">- BARBERÍA LAS CONDES -</motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-2 md:mb-4">- BARBERÍA LAS CONDES -</motion.p>
             <div className="overflow-hidden mb-6 md:mb-8">
              <motion.div 
                initial={{ y: "110%", opacity: 0 }}
-               animate={{ y: loading ? "110%" : "0%", opacity: 1 }}
-               transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 1.3 }}
+               animate={{ y: "0%", opacity: 1 }}
+               transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
                className="relative w-48 h-20 md:w-[400px] md:h-40"
              >
                 <Image src="/logo-level-studio-las-condes.webp" alt="Level Studio" fill className="object-contain" />
@@ -154,8 +116,8 @@ export default function LevelStudioPage() {
            
            <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: loading ? 0 : 1, y: loading ? 30 : 0 }}
-              transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
            >
              <a href={AGENDA_URL} target="_blank" rel="noopener noreferrer" onClick={() => sendGAEvent({ event: 'click_agenda', value: 'boton_agendar' })}>
                 <button className="group relative inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 text-xs font-bold uppercase tracking-[0.2em] text-zinc-900 transition-all duration-500 bg-white hover:bg-zinc-200 rounded-full overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-1">
@@ -287,23 +249,6 @@ export default function LevelStudioPage() {
             >
               Nuestros <span className="text-zinc-500 font-nothing normal-case tracking-tight block md:inline">Servicios</span>
             </motion.h2>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="flex justify-center mb-10 md:mb-16"
-            >
-               <a 
-                 href="https://app.dardo.ai/getpass/kcaTxz?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn4QE4XcgKzkxYnFtDnrS8VNc-MNe_JLKbL4XwmRvO8VmKI7TtzxCqELuPWA0_aem__XzuQp9OFPF6Ositc23UMQ"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 bg-zinc-900 text-white hover:bg-black text-[10px] md:text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-               >
-                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg>
-                 Obtén tu tarjeta de fidelización para beneficios
-               </a>
-            </motion.div>
 
              <div className="flex flex-col mt-8">
                 {SERVICES.map((service, i) => (
@@ -458,7 +403,7 @@ export default function LevelStudioPage() {
                  </div>
                  <div className="mt-6 md:mt-0 flex flex-col items-center md:items-end">
                      <p className="font-bold text-xs uppercase tracking-[0.2em] text-zinc-600 mb-2">
-                        5.0/5 (+75 opiniones)
+                        5.0/5 (+100 opiniones en Google)
                      </p>
                      <div className="flex gap-1 text-zinc-500 text-2xl">
                          ★ ★ ★ ★ ★
@@ -548,7 +493,7 @@ export default function LevelStudioPage() {
                   </div>
                </div>
                
-               <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Apoquindo+4900,+local+29,+Las+Condes" target="_blank" rel="noreferrer" className="mt-12 inline-flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-zinc-900 group">
+               <a href="https://www.google.com/maps/search/?api=1&query=Level+Studio+Las+Condes" target="_blank" rel="noreferrer" className="mt-12 inline-flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-zinc-900 group">
                   <span className="border-b border-white group-hover:border-zinc-900 group-hover:text-zinc-500 transition-colors">Abrir en Google Maps</span>
                   <ArrowRight className="w-4 h-4 group-hover:text-zinc-500 group-hover:translate-x-2 transition-all" />
                </a>
@@ -622,8 +567,7 @@ export default function LevelStudioPage() {
             <div className="pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500 font-light tracking-wider uppercase">
                <p>© {new Date().getFullYear()} Level Studio. Todos los derechos reservados.</p>
                <div className="flex gap-6">
-                  <a href="#" className="hover:text-zinc-900 transition-colors">Privacidad</a>
-                  <a href="#" className="hover:text-zinc-900 transition-colors">Términos</a>
+                  <Link href="/privacidad" className="hover:text-zinc-900 transition-colors">Privacidad</Link>
                   <p>Diseño por <a href="https://colectiohub.com" target="_blank" rel="noopener noreferrer" className="text-zinc-900 font-bold hover:underline transition-all">ColectioHub</a></p>
                </div>
             </div>

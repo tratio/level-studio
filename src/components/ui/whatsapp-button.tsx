@@ -5,50 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function WhatsAppButton() {
   const [showWsTooltip, setShowWsTooltip] = useState(false);
-  const [showLoyaltyTooltip, setShowLoyaltyTooltip] = useState(false);
 
   // URLs
   const whatsappUrl = "https://wa.me/56990118423?text=Hola%20Level%20Studio,%20me%20gustar%C3%ADa%20hacer%20una%20consulta.";
-  const loyaltyUrl = "https://app.dardo.ai/getpass/kcaTxz?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn4QE4XcgKzkxYnFtDnrS8VNc-MNe_JLKbL4XwmRvO8VmKI7TtzxCqELuPWA0_aem__XzuQp9OFPF6Ositc23UMQ";
 
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4 select-none scale-75 md:scale-100 origin-bottom-right">
-      
-      {/* Loyalty Card FAB */}
-      <div className="relative flex items-center justify-end w-full">
-        <AnimatePresence>
-          {showLoyaltyTooltip && (
-            <motion.div
-              initial={{ opacity: 0, x: 10, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 10, scale: 0.9 }}
-              transition={{ duration: 0.2 }}
-              className="absolute right-[60px] bg-zinc-900 border border-zinc-800 shadow-xl px-4 py-2 rounded-xl text-[11px] font-body font-bold text-white tracking-wide whitespace-nowrap"
-            >
-              ¡Obtén tu Tarjeta de Beneficios!
-              <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-zinc-900 border-r border-t border-zinc-800 rotate-45" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <motion.a
-          href={loyaltyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Obtener Tarjeta de Fidelización"
-          onMouseEnter={() => setShowLoyaltyTooltip(true)}
-          onMouseLeave={() => setShowLoyaltyTooltip(false)}
-          initial={{ scale: 0, y: 50 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.8 }}
-          whileHover={{ scale: 1.08, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-          className="relative h-12 w-12 rounded-full bg-zinc-900 text-white flex items-center justify-center shadow-lg shadow-black/30 transition-colors border border-zinc-700 cursor-pointer"
-        >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
-        </motion.a>
-      </div>
-
       {/* WhatsApp FAB */}
       <div className="relative flex items-center justify-end w-full">
         <AnimatePresence>

@@ -87,6 +87,44 @@ export default function LevelStudioPage() {
   return (
     <div ref={containerRef} className="relative bg-zinc-50 min-h-screen text-zinc-900 overflow-hidden font-sans" >
       
+            {/* LOADING SCREEN */}
+      <AnimatePresence>
+        {loading && (
+          <motion.div 
+            initial={{ y: 0 }}
+            exit={{ y: "-100%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white pointer-events-none"
+            style={{ backgroundImage: "url('/fondo-concreto-level-studio.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+          >
+            <div className="absolute inset-0 bg-white/40 z-0"></div>
+            <div className="relative z-10 overflow-hidden flex flex-col items-center justify-center">
+              <motion.div
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+                className="relative w-64 h-24 md:w-80 md:h-32 mb-4"
+              >
+                <Image src="/logo-oscuro-level-studio.webp" alt="Level Studio Logo" fill className="object-contain" priority />
+              </motion.div>
+            </div>
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: "200px" }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+              className="relative z-10 h-[2px] bg-zinc-900 mt-8"
+            />
+            <motion.p
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1 }}
+               className="relative z-10 font-nothing mt-4 text-zinc-900 text-lg md:text-2xl"
+            >
+              Cargando Experiencia...
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* HERO SECTION */}
       <section className="relative h-[100svh] w-full overflow-hidden flex items-center justify-center">
          <div className="absolute inset-0 w-full h-full z-0">
